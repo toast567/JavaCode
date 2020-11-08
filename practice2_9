@@ -6,8 +6,8 @@ public class LoopOfFor {
 		
 		for( c = 0; c <= 40; c += 5) {
 			h = c * 9 / 5 + 32;
+			System.out.println(c + "	" + h);
 		}
-		System.out.println(c + "	" + h);
 	}
 
 }
