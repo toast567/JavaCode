@@ -4,18 +4,22 @@ public class RelationOp {
 		int a = 9;
 		int b = 6;
 		int c = 6;
+		
 		boolean d = a > b;		//true
 		boolean e = a < b;		//false
 		boolean f = b == c;		//true
 		boolean g = b != c;		//false
-		
-		f = (b == c) || (a<b);	//true
-		g = (b == c) && (a < b);//false
+		boolean h = b >= c;		//true
+		boolean i = b <= c;		//true
+		boolean j = a ==b;		//false
 		
 		System.out.println("d=" + d);
 		System.out.println("e=" + e);
 		System.out.println("f=" + f);
 		System.out.println("g=" + g);
+		System.out.println("h=" + h);
+		System.out.println("i=" + i);
+		System.out.println("j=" + j);
 	}
 
 }
