@@ -1,0 +1,30 @@
+public class SimpleIntegratedCode_Poker {
+
+	public static void main(String[] args) {
+		String[] poker = new String[52];
+		int picked;
+		String[] suit = new String[4];
+		suit[0] = "Diamonds";
+		suit[1] = "Hearts";
+		suit[2] = "Spades";
+		suit[3] = "Clubs";
+		
+		for(int i = 0, c = -1; i < 52; i++) {
+			
+			if(i % 13 == 0) {
+				c++;
+				poker[i] = "Ace of " + suit[c];
+			}
+			else if(i % 13 <= 9) 
+				poker[i] = ((i % 13) + 1) + " of " + suit[c];
+			else {
+				if(i % 13 == 10) poker[i] = "Jack of " + suit[c];
+				else if(i % 13 == 11) poker[i] = "Queen of " + suit[c];
+				else poker[i] = "King of " + suit[c];
+			}
+		}
+		picked = (int) (Math.random() * 52);
+		System.out.println("The card you picked is " + poker[picked] + ".");
+	}
+
+}
