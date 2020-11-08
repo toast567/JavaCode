@@ -1,0 +1,20 @@
+public class LogicOp {
+
+	public static void main(String[] args) {
+		int a = 9;
+		int b = 6;
+		int c =6;
+		boolean d, e, f, g;
+		
+		d = !(a > b);				//false
+		e = (a > b) && (a > c);		//true
+		f = (b == c) || (a<b);		//true
+		g = (b == c) && (a < b);	//false
+		
+		System.out.println("d=" + d);
+		System.out.println("e=" + e);
+		System.out.println("f=" + f);
+		System.out.println("g=" + g);
+	}
+
+}
