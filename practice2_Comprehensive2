@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class VowelCounter {
+
+	public static void main(String[] args) {
+		final int A = 0;
+		final int E = 1;
+		final int I = 2;
+		final int O = 3;
+		final int U = 4;
+		int[] counter = new int[5];
+		String sentence = new String();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a sentence:");
+		sentence = input.nextLine();
+		for(int i = 0; i < sentence.length(); i++) {
+			switch(sentence.charAt(i)) {
+			case 'A':
+			case 'a': counter[A]++;break;
+			case 'E':
+			case 'e': counter[E]++;break;
+			case 'I':
+			case 'i': counter[I]++;break;
+			case 'O':
+			case 'o': counter[O]++;break;
+			case 'U':
+			case 'u': counter[U]++;break;
+			default: ;
+			}
+		}
+		System.out.println("There are " + counter[A] + " 'A' in the sentence(ignore case).");
+		System.out.println("There are " + counter[E] + " 'E' in the sentence(ignore case).");
+		System.out.println("There are " + counter[I] + " 'I' in the sentence(ignore case).");
+		System.out.println("There are " + counter[O] + " 'O' in the sentence(ignore case).");
+		System.out.println("There are " + counter[U] + " 'U' in the sentence(ignore case).");
+	}
+
+}
