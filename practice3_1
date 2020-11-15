@@ -23,8 +23,8 @@ public class Sum {
 		for(int i = 0; i < numbers.length; i++) {
 			if(numbers[i] != "") array[i] = Integer.parseInt(numbers[i]);
 		}
-		for(int i = 0; i < numbers.length; i++) {
-			sum += array[i];
+		for(Integer item : array) {
+			sum += item;
 		}
 		
 		System.out.println("The sum of these integers is " + sum);
@@ -32,3 +32,4 @@ public class Sum {
 	}
 
 }
+
