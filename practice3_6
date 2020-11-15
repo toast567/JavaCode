@@ -1,0 +1,13 @@
+public class RandomLetter {
+
+	public static void main(String[] args) {
+		int max = 122, min = 97;
+		int[] letterCounter = new int[26];
+		char[] randomLetter = new char[100];
+		for(int i = 0; i < 100; i++) {
+			randomLetter[i] = (char)(Math.random() * (max - min) + min);
+		}
+		for(int)
+	}
+
+}
