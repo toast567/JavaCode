@@ -1,0 +1,75 @@
+public class Sort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a1 = {7, 4, 3, 9, 0, 6};
+		int[] a2 = {7, 4, 3, 9, 0, 6};
+		int[] a3 = {7, 4, 3, 9, 0, 6};
+		selectSort(a1);
+		bubbleSort(a2);
+		insertSort(a3);
+		
+		System.out.println("select sort: ");
+		for(Integer item : a1) {
+			System.out.print(item + " ");
+		}
+		
+		System.out.println();
+		System.out.println("bubble sort: ");
+		for(Integer item : a2) {
+			System.out.print(item + " ");
+		}
+		
+		System.out.println();
+		System.out.println("insert sort: ");
+		for(Integer item : a3) {
+			System.out.print(item + " ");
+		}
+	}
+	
+	public static int[] selectSort(int[] a) {		//选择排序
+		int minIndex;
+		int temp;
+		for(int i = 0; i < a.length - 1; i++) {
+			minIndex = i;							//记录最小元素的下标
+			for(int j = i + 1; j < a.length; j++) {	//与其它元素比较，小于minIndex对应的元素，更新minIndex
+				if(a[j] < a[minIndex]) {
+					minIndex = j;
+				}
+			}
+			temp = a[minIndex];						//交换 初始minIndex对应元素 和 更新后对应元素 的值
+			a[minIndex] = a[i];						//即将每次比较得出的“最小元素”置于“最前”
+			a[i] = temp;
+		}
+		return a;
+	}
+	
+	public static int[] bubbleSort(int[] a) {		//冒泡排序
+		int temp;
+		for(int i = 0; i < a.length; i++) {
+			for(int j = 0; j < a.length - i - 1; j++) {	//与相邻元素比较，前者小于后者时，二者交换
+				if(a[j] > a[j + 1]) {
+					temp = a[j + 1];
+					a[j + 1] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
+		return a;
+	}
+	
+	public static int[] insertSort(int[] a) {		//插入排序
+		int temp;
+		for(int i = 0; i < a.length; i++) {
+			for(int j = i; j > 0; j--) {			//遍历已有的“有序”元素（0到i-1），将新元素插入合适的位置
+				if(a[j] < a[j - 1]) {
+					temp = a[j];
+					a[j] = a[j - 1];
+					a[j - 1] = temp;
+				}
+			}
+		}
+		return a;
+	}
+	
+}
