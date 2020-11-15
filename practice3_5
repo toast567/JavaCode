@@ -1,0 +1,46 @@
+import java.util.Arrays;
+
+public class Array {
+
+	public static void main(String[] args) {
+		int[] list = {222, 444, 7, 101, 11, 451, 50, 59, 606, 66, 69, 70, 79};
+		
+		int[] list0 = new int[list.length];
+		System.arraycopy(list, 0, list0, 0, list.length);
+		
+		System.out.println("The source array ");
+		for(Integer item : list) {
+			System.out.print(item + " ");
+		}
+		System.out.println();
+		
+		System.out.println("The copy array ");
+		for(Integer item : list0) {
+			System.out.print(item + " ");
+		}
+		System.out.println();
+
+		Arrays.sort(list);
+		Arrays.sort(list0);
+		
+		System.out.println("The sorted source array ");
+		for(Integer item : list) {
+			System.out.print(item + " ");
+		}
+		System.out.println();
+
+		System.out.println("The sorted copy array ");
+		for(Integer item : list) {
+			System.out.print(item + " ");
+		}
+		System.out.println();
+
+		System.out.println("Search 66 in sorted souce array, " + 
+				"Index is " + Arrays.binarySearch(list, 66));
+		
+		System.out.println("Search 99 in sorted copy array, " + 
+				"Index is " + Arrays.binarySearch(list0, 99));
+
+	}
+
+}
