@@ -1,0 +1,38 @@
+package Practice3;
+
+import java.util.Scanner;
+
+public class SwapTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int a = input.nextInt();
+		int b = input.nextInt();
+		int[] arr = new int[2];
+		arr[0] = input.nextInt();
+		arr[1] = input.nextInt();
+
+		System.out.println("a: " + a + "; b: " + b);
+		swap(a,b);
+		System.out.println("swap(a, b); a: " + a + "; b: " + b);
+		
+		System.out.println("arr[0]: " + arr[0] + "; arr[1]: " + arr[1]);
+		swap(arr);
+		System.out.println("swap(arr); arr[0]: " + arr[0] + "; arr[1]: " + arr[1]);
+
+	}
+	
+	public static void swap(int[] a) {
+		int temp = a[0];
+		a[0] = a[1];
+		a[1] = temp;
+	}
+	
+	public static void swap(int a, int b) {
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	
+}
