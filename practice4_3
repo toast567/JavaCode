@@ -1,0 +1,68 @@
+package practice4;
+
+import java.util.Date;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		Account zhangSan = new Account(1122, 20000);
+		zhangSan.setAnnualInterestRate(0.045);
+		zhangSan.withDraw(2500);
+		zhangSan.deposit(3000);
+		System.out.println("余额：" + zhangSan.getBalance());
+		System.out.println("月利息：" + zhangSan.getMonthlyInterestRate() * 100 + "%");
+		System.out.println("开户日期：" + zhangSan.getDateCreated());
+	}
+}
+
+class Account {
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private Date dateCreated = new Date();
+	
+	public Account() {
+		id = 0;
+		balance = 0;
+		annualInterestRate = 0;
+	}
+	public Account(int id, double balance) {
+		this.id = id;
+		this.balance = balance;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+	public void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+	public String getDateCreated() {
+		return dateCreated.toLocaleString();
+	}
+	
+	public double getMonthlyInterestRate() {
+		return annualInterestRate / 12;
+	}
+	
+	public void withDraw(double drawAmount) {
+		balance -= drawAmount;
+	}
+	
+	public void deposit(double depositAmount) {
+		balance += depositAmount;
+	}
+	
+}
