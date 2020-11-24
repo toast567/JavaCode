@@ -1,0 +1,45 @@
+package practice4;
+
+public class CarTest {
+
+	public static void main(String[] args) {
+		Car RollsRoyce = new Car("zhanSan", 70, 30);
+		System.out.println("The car's owner is " + RollsRoyce.getOwnerName());
+		System.out.println("The car's current speed is " + RollsRoyce.getCurSpeed());
+		System.out.println("The car's current steering angle is " + RollsRoyce.getCurDirInDegree());
+		RollsRoyce.stop();
+		System.out.println("The car is stopped and the current speed is " + RollsRoyce.getCurSpeed());
+	}
+
+}
+
+class Car {
+	  private String ownerName; 
+	  private float curSpeed; 
+	  private float curDirInDegree; 
+	  
+	  public Car (String ownerName){
+		  this.ownerName = ownerName;
+	  }
+	  public Car (String ownerName, float speed, float dirInDegree){
+		  this(ownerName);
+		  curSpeed = speed;
+		  curDirInDegree = dirInDegree;
+	  }
+	  
+	  public String getOwnerName() {
+		  return ownerName;
+	  }
+	  public float getCurDirInDegree() { 
+		  return curDirInDegree;
+	  }
+	  public float getCurSpeed() { 
+		  return curSpeed;
+	  }
+	  public void changeSpeed(float curSpeed) { 
+		  this.curSpeed = curSpeed;
+	  }
+	  public void stop(){ 
+		  this.curSpeed = 0;
+	  }
+}
