@@ -1,0 +1,101 @@
+package practice4;
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		Student stu = new Student("Jhon", "100", 20, 87.3, 91.4, 89.0);
+		System.out.println("总分：" + stu.sumOfGrades());
+		System.out.println("平均分：" + stu.averageOfGrades());
+		System.out.println("最高分：" + stu.maxOfGrades());
+		System.out.println("最低分：" + stu.minOfGrades());
+		System.out.println("学生信息：");
+		System.out.println("    |-学号：" + stu.getId());
+		System.out.println("    |-姓名：" + stu.getName());
+		System.out.println("    |-年龄：" + stu.getAge());
+		System.out.println("    |-英语：" + stu.getEnglisGrade());
+		System.out.println("    |-计算机：" + stu.getComputerGrade());
+		System.out.println("    |-数学：" + stu.getMathGrade());
+	}
+
+}
+
+class Student {
+	private String name;
+	private String id;
+	private int age;
+	
+	private double computerGrade;
+	private double mathGrade;
+	private double englishGrade;
+	
+	public Student() {}
+	public Student(String name, String id, int age) {
+		this.name = name;
+		this.id = id;
+		this.age =age;
+	}
+	public Student(String name, String id, int age, double computerGrade, double mathGrade, double englishGrade) {
+		this.name = name;
+		this.id = id;
+		this.age =age;
+		this.computerGrade = computerGrade;
+		this.mathGrade = mathGrade;
+		this.englishGrade = englishGrade;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public void setComputerGrade(double computerGrade) {
+		this.computerGrade = computerGrade;
+    }
+	public void setMathGrade(double mathGrade) {
+		this.mathGrade = mathGrade;
+    }
+	public void setEnglishGrade(double englishGrade) {
+		this.englishGrade = englishGrade;
+    }
+	
+	public String getName() {
+		return name;
+	}
+	public String getId() {
+		return id;
+	}
+	public int getAge() {
+		return age;
+	}
+	public double getComputerGrade() {
+		return computerGrade;
+	}
+	public double getMathGrade() {
+		return mathGrade;
+	}
+	public double getEnglisGrade() {
+		return englishGrade;
+	}
+	
+	public double sumOfGrades() {
+		return computerGrade + mathGrade + englishGrade;
+	}
+	public double averageOfGrades() {
+		return this.sumOfGrades() / 3;
+	}
+	public double maxOfGrades() {
+		return (computerGrade > mathGrade) ? 
+				((computerGrade > englishGrade) ? computerGrade : englishGrade) 
+				: ((mathGrade > englishGrade) ? mathGrade : englishGrade);
+	}
+	public double minOfGrades() {
+		return (computerGrade < mathGrade) ? 
+				((computerGrade < englishGrade) ? computerGrade : englishGrade) 
+				: ((mathGrade < englishGrade) ? mathGrade : englishGrade);
+	
+	}
+}
