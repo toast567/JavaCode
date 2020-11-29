@@ -1,0 +1,46 @@
+package practice5;
+
+import java.util.Scanner;
+
+public class BinaryToHexadecimal {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a number in decimal: ");
+		int n = input.nextInt();
+		
+		String binaryString = "";
+		if(n != 0){
+			for(; n != 0; n = n / 2) {
+				binaryString = (n % 2) + binaryString;
+			}
+			binaryString = "0B" + binaryString;
+		}
+		else 
+			binaryString = "0B0";
+		
+		System.out.println("Its binary representation: " + binaryString);
+		
+		String hexadecimalString = "";
+		int temp = 0;
+		for(int i = binaryString.length() - 1; i > 1; i = i - 4) {
+			for(int j = 0; j < 4; j++) {
+				if(i - j > 1)
+					if(binaryString.charAt(i - j) == '1')
+						temp += Math.pow(2, j);
+			}
+			
+			if(temp >= 10)
+				hexadecimalString = (char)(65 + temp - 10) + hexadecimalString;
+			else 
+				hexadecimalString = temp + hexadecimalString;
+			temp = 0;
+			
+		}
+		hexadecimalString = "0X" + hexadecimalString;
+		
+		System.out.println("Its hexadecimal representation: " + hexadecimalString);
+
+	}
+
+}
