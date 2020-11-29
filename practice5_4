@@ -1,0 +1,28 @@
+package practice5;
+
+import java.util.Scanner;
+
+public class CountCharInString {
+
+	public static void main(String[] args) {
+		System.out.print("Enter a string and a character: ");
+		
+		Scanner input = new Scanner(System.in);
+		String str = input.next();
+		String charA = input.next();
+		char a = charA.charAt(0);
+		
+		System.out.println("The number of '" + a +"' in '" + str + "' is " + count(str,a));
+
+	}
+
+	public static int count(String str, char a) {
+		int counter = 0;
+		for(int i = 0; i < str.length(); i++) {
+			if(str.charAt(i) == a) 
+				counter++;
+		}
+		return counter;
+	}
+	
+}
