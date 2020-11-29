@@ -1,0 +1,56 @@
+package practice4;
+
+import java.util.Date;
+import java.util.Scanner;
+
+public class StopWatchTest {
+
+	public static void main(String[] args) {
+		StopWatch sw = new StopWatch();
+		Scanner input = new Scanner(System.in);
+		System.out.print("press Enter to start the StopWatch: ");
+		String str = input.nextLine();
+		if(str.equals("")) {
+			sw.start();
+			System.out.println("Timing... ");
+			System.out.print("press Enter to stop the StopWatch: ");
+			str = input.nextLine();
+			if(str.equals("")) {
+				sw.stop();
+			}
+			System.out.println("In this interim, it elapsed " + sw.getElapsedTime() + " milliseconds");
+		}
+		else 
+			System.out.println("Wrong");
+			
+	}
+
+}
+
+class StopWatch {
+	private Date startTime;
+	private Date endTime;
+	
+	public StopWatch() {
+		startTime = new Date();
+	}
+	
+	public Date getStartTime() {
+		return startTime;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	
+	public void start() {
+		startTime = new Date();
+	}
+	public void stop() {
+		endTime = new Date();
+	}
+	
+	public long getElapsedTime() {
+		return endTime.getTime() - startTime.getTime();
+	}
+	
+}
