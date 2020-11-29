@@ -1,0 +1,48 @@
+package practice5;
+
+import java.util.Scanner;
+
+public class CheckPasswordValid {
+
+	public static void main(String[] args) {
+		System.out.print("Enter the password: ");
+		
+		Scanner input = new Scanner(System.in);
+		String password = input.nextLine();
+		
+		boolean eightChararacterAtLeast;
+		boolean twoNumberAtLeast;
+		boolean characterNumberOnly = true;
+		
+		int characterCounter = 0, numberCounter = 0;
+		
+		for(int i = 0; i < password.length(); i++) {
+			if(password.charAt(i) >= 'a' && password.charAt(i) <= 'z' 
+					|| password.charAt(i) > 'A' && password.charAt(i) < 'Z')
+				characterCounter++;
+			
+			else if(password.charAt(i) >= '0' && password.charAt(i) <= '9')
+				numberCounter++;
+			
+			else 
+				characterNumberOnly = false;
+		}
+		
+		if(characterCounter >= 8) 
+			eightChararacterAtLeast = true;
+		else 
+			eightChararacterAtLeast = false;
+		
+		if(numberCounter >= 2)
+			twoNumberAtLeast = true;
+		else 
+			twoNumberAtLeast = false;
+		
+		if(eightChararacterAtLeast && twoNumberAtLeast && characterNumberOnly)
+			System.out.println("Valid password");
+		else 
+			System.out.println("Invalid password");
+
+	}
+
+}
