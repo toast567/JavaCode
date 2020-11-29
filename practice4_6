@@ -1,0 +1,62 @@
+package practice4;
+
+import java.util.Scanner;
+
+public class QuadraticEquationTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a, b and c: ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		QuadraticEquation qe = new QuadraticEquation(a, b, c);
+		if(qe.getDiscriminant() > 0) 
+			System.out.println("Root1: " + qe.getRoot1() + "; Root2: " + qe.getRoot2());
+		else if(qe.getDiscriminant() == 0)
+			System.out.println("Root1 = Root2 = " + qe.getRoot1());
+		else 
+			System.out.println("The eqution has no roots.");
+	}
+
+}
+
+class QuadraticEquation {
+	private double a;
+	private double b;
+	private double c;
+	
+	public QuadraticEquation(double a, double b, double c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+	public double getA() {
+		return a;
+	}
+	public double getB() {
+		return b;
+	}
+	public double getC() {
+		return c;
+	}
+	
+	public double getDiscriminant() {
+		return b * b - 4 * a * c;
+	}
+	public double getRoot1() {
+		if(this.getDiscriminant() >= 0) {
+			return (-b + this.getDiscriminant()) / (2 * a);
+		}
+		else 
+			return 0;
+	}
+	public double getRoot2() {
+		if(this.getDiscriminant() >= 0) {
+			return (-b - this.getDiscriminant()) / (2 * a);
+		}
+		else 
+			return 0;
+	}
+}
