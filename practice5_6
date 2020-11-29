@@ -1,0 +1,29 @@
+package practice5;
+
+public class UsingOfMath {
+
+	public static void main(String[] args) {
+		double randomDoubleLower1 = Math.random();
+		
+		double maxOfDouble = Double.MAX_VALUE;
+		double minOfDouble = Double.MIN_VALUE;
+		
+		double randomDouble1 = (maxOfDouble - minOfDouble) * Math.random();
+		double randomDouble2 = (maxOfDouble - minOfDouble) * Math.random();
+		
+		double para2PowerOfPar1 = Math.pow(3.5, 2.9);
+		
+		Math.log(10);
+		Math.log10(10);
+		Math.log1p(10);
+		
+		Math.sqrt(9);
+		
+		Math.sin(1.1);
+		Math.cos(1.1);
+		Math.tan(1.1);
+		
+		Math.random();
+	}
+
+}
