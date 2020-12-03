@@ -1,0 +1,53 @@
+package practice6;
+
+public class TestPoint {
+
+	public static void main(String[] args) {
+		Point a = new Point(5, 6);
+		Point b = a.clone();
+		
+		System.out.println("point a's coordinate: " + a.toString());
+		System.out.println("point b's coordinate: " + b.toString());
+		
+		if(a.equals(b)) 
+			System.out.println("a equals b");
+		else
+			System.out.println("a does'nt equal b");
+		
+	}
+
+}
+
+class Point {
+	private int x, y;
+	
+	public Point(int a, int b) {
+		x = a;
+		y = b;
+	}
+	public Point(Point p) {
+		x = p.x;
+		y = p.y;
+	}
+	
+	@Override
+	public Point clone() {
+		Point temp = new Point(this);
+		return temp;
+		
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Point) {
+			if(((Point) o).x == this.x && ((Point) o).y == this.y)
+				return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
+}
