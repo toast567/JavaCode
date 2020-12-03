@@ -1,6 +1,6 @@
 package practice5;
 
-public class UsingOfMath {
+public class UsingMath {
 
 	public static void main(String[] args) {
 		double randomDoubleLower1 = Math.random();
@@ -13,17 +13,19 @@ public class UsingOfMath {
 		
 		double para2PowerOfPar1 = Math.pow(3.5, 2.9);
 		
-		Math.log(10);
-		Math.log10(10);
-		Math.log1p(10);
+		double logarithmOf10BasedOnE = Math.log(10);
 		
-		Math.sqrt(9);
+		double logarithmOf10Based10 = Math.log10(10);
 		
-		Math.sin(1.1);
-		Math.cos(1.1);
-		Math.tan(1.1);
+		double logarithmOf10BasedOnEPlus1 =  Math.log1p(10);
 		
-		Math.random();
+		double squreRootOf9 = Math.sqrt(9);
+		
+		double sineOf1 = Math.sin(1);
+		double cosineOf1 = Math.cos(1);
+		double tangentOf1 = Math.tan(1.1);
+		
+		double randomDouble = Math.random();
 	}
 
 }
