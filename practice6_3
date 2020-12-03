@@ -1,0 +1,52 @@
+package practice6;
+
+public class UsingThisSuperKerword {
+
+	public static void main(String[] args) {
+		Line line = new Line(5, 6);
+		System.out.println("The line: " + line.toString());
+		System.out.println("The line's length is " + line.length());
+	}
+
+}
+
+class Point {
+	protected double x;
+	protected double y;
+	
+	public Point() {
+		x = y = 0;
+	}
+	
+	public Point(double a, double b) {
+		x = a;
+		y = b;
+	}
+	
+	
+}
+
+class Line extends Point {
+	
+	public Line() {
+		super();
+	}
+	
+	public Line(double a, double b) {
+		super(a, b);
+	}
+	
+	public void setLine(double a, double b) {
+		this.x = a;
+		this.y = b;
+	}
+	
+	public double length() {
+		return Math.sqrt((super.x * super.x + super.y * super.y));
+	}
+	
+	public String toString() {
+		return "(0, 0) to " + "(" + super.x + ", "+ super.y + ")";
+	}
+	
+}
