@@ -1,0 +1,32 @@
+package practice6;
+
+public class Student {
+	protected String xm;			//name
+	protected int xh;				//id
+	
+	void setData(String xm, int xh) {
+		this.xm = xm;
+		this.xh = xh;
+	}
+	
+	public void print() {
+		System.out.println(xm + ", " + xh);
+	}
+	
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.setData("zhangSan", 11111);
+		s.print();
+		
+		CollegeStudent cs = new CollegeStudent();
+		cs.setData("liSi", 22222);
+		cs.print();
+	}
+	
+}
+
+class CollegeStudent extends Student {
+	private String xy;				//department
+	private String bj;				//class
+	
+}
