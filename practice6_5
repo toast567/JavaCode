@@ -1,0 +1,71 @@
+package practice6;
+
+import java.util.Scanner;
+
+interface Moveable {
+	public void stop();
+	public void start();
+}
+
+class Car implements Moveable {
+
+	@Override
+	public void stop() {
+		System.out.println("起步");		
+	}
+
+	@Override
+	public void start() {
+		System.out.println("停车");
+	}
+	
+}
+
+class Ship implements Moveable {
+
+	@Override
+	public void stop() {
+		System.out.println("停泊");
+	}
+
+	@Override
+	public void start() {
+		System.out.println("开船");		
+	}
+	
+}
+
+class Aircraft implements Moveable {
+
+	@Override
+	public void stop() {
+		System.out.println("降落");
+	}
+
+	@Override
+	public void start() {
+		System.out.println("起飞");
+	}
+	
+}
+
+
+public class InterfaceMoveableTest {
+
+	public static void main(String[] args) {
+		Moveable[] travelMode = new Moveable[3];
+		
+		travelMode[0] = new Car();
+		travelMode[1] = new Ship();
+		travelMode[2] = new Aircraft();
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("你想怎么出行？请输入选择：0-汽车 1-轮船 2-飞机");
+		int i = scanner.nextInt();
+		
+		travelMode[i].start();
+		travelMode[i].stop();
+		
+	}
+
+}
