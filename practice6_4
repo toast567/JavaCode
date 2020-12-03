@@ -1,0 +1,145 @@
+package practice6;
+
+import java.util.Scanner;
+
+interface Soundable {
+	public void increaseVolume();
+	public void decreaseVolume();
+	public void stopSound();
+	public void playSound();
+	
+}
+
+class Radio implements Soundable {
+	@Override
+	public void increaseVolume() {
+		System.out.println("增大收音机音量");
+	}
+
+	@Override
+	public void decreaseVolume() {
+		System.out.println("减小收音机音量");
+
+	}
+
+	@Override
+	public void stopSound() {
+		System.out.println("关闭收音机");
+
+	}
+
+	@Override
+	public void playSound() {
+		System.out.println("收音机播放广播");
+
+	}
+}
+
+class Walkman implements Soundable {
+
+	@Override
+	public void increaseVolume() {
+		System.out.println("增大随身听音量");
+	}
+
+	@Override
+	public void decreaseVolume() {
+		System.out.println("减小随身听音量");
+		
+	}
+
+	@Override
+	public void stopSound() {
+		System.out.println("关闭随身听");
+		
+	}
+
+	@Override
+	public void playSound() {
+		System.out.println("随身听放出音乐");
+		
+	}
+	
+}
+
+class Mobilephone implements Soundable {
+
+	@Override
+	public void increaseVolume() {
+		System.out.println("增大手机音量");
+	}
+
+	@Override
+	public void decreaseVolume() {
+		System.out.println("减小手机音量");
+		
+	}
+
+	@Override
+	public void stopSound() {
+		System.out.println("关闭手机");
+		
+	}
+
+	@Override
+	public void playSound() {
+		System.out.println("是u及发出来电铃声");
+		
+	}
+	
+}
+
+class People {
+	private String name;
+	private int age;
+	
+	public void listen(Soundable s) {
+		s.playSound();
+	}
+	
+}
+
+class Clock implements Soundable {
+
+	@Override
+	public void increaseVolume() {}
+
+	@Override
+	public void decreaseVolume() {}
+
+	@Override
+	public void stopSound() {
+		System.out.println("关闭闹钟");
+		
+	}
+
+	@Override
+	public void playSound() {
+		System.out.println("闹钟发出滴答声");
+		
+	}
+	
+}
+
+public class InterfaceTest {
+
+	public static void main(String[] args) {
+		int i ;
+		People sportman = new People();
+		Scanner scanner = new Scanner(System.in);
+		Soundable[] soundDevice = new Soundable[3];
+		
+		soundDevice[0] = new Radio();
+		soundDevice[1] = new Walkman();
+		soundDevice[2] = new Mobilephone();
+		soundDevice[3] = new Clock();
+		
+		System.out.println("你想听什么？请输入选择：0-收音机 1-随身听 2-手机");
+		i = scanner.nextInt();
+		
+		sportman.listen(soundDevice[i]);
+		soundDevice[i].increaseVolume();
+		
+	}
+
+}
