@@ -1,0 +1,67 @@
+package practice7;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class DivideByZeroGUI extends JFrame implements ActionListener{
+
+	private JTextField numeratorField, denominatorField, outputField;
+	private int denominator, numerator, quotient;
+	
+	public DivideByZeroGUI() {
+		super("除数为0异常");
+		Container container = getContentPane();
+		container.setLayout(new GridLayout(3, 2));
+		container.add(
+				new JLabel("输入被除数", SwingConstants.RIGHT)
+				);
+		
+		numeratorField = new JTextField(10);
+		container.add(numeratorField);
+		container.add(
+				new JLabel("输入除数并回车", SwingConstants.RIGHT)
+				);
+		
+		denominatorField.addActionListener(this);			// * Exception in thread "main"...???
+															// * java.lang.NullPointerException
+		container.add(										
+				new JLabel("结果", SwingConstants.RIGHT)
+				);
+		
+		outputField = new JTextField();
+		container.add(outputField);
+		
+		setSize(425, 100);
+		setVisible(true);
+		
+	}
+	
+	public void actionPerformed(ActionEvent event) {
+		outputField.setText("");
+		try {
+			numerator = Integer.parseInt(numeratorField.getText());
+		}
+		catch(NumberFormatException ex) {
+			System.out.println("I found exception " + ex.toString());
+		}
+		denominator = Integer.parseInt(denominatorField.getText());
+		try {
+		quotient = quotient(numerator, denominator);
+		}
+		catch(ArithmeticException ex) {
+			System.out.println("I found exception " + ex.toString());
+		}
+	}
+	
+	public int quotient(int numerator, int denominator) {
+		return numerator / denominator;
+	}
+	
+	
+	public static void main(String[] args) {
+		DivideByZeroGUI application = new DivideByZeroGUI();
+		application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
