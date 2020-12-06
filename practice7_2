@@ -1,0 +1,26 @@
+package practice7;
+
+public class DivideByZero {
+
+	private int denominator, numerator, quotient;
+
+	public DivideByZero() {
+		denominator = 0; numerator = 12;
+		try {
+			quotient = quotient(numerator, denominator);
+			System.out.println("quotient is " + quotient);
+		}
+		catch(ArithmeticException ex) {
+			System.out.println("I found exception " + ex.toString());
+		}
+	}
+	
+	public int quotient(int numerator, int denominator) {
+		return numerator / denominator;
+	}
+	
+	public static void main(String[] args) {
+		DivideByZero application = new DivideByZero();
+	}
+
+}
