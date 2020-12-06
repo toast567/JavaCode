@@ -1,0 +1,58 @@
+package packone;
+
+public class Clock {
+	public int hour;
+	private int minute;
+	protected int second;
+	
+	public Clock(int i, int j, int k) {
+		setAll(i, j, k);
+	}
+	void setAll(int i, int j, int k) {
+		hour = i;
+		minute = j;
+		second = k;
+	}
+	
+	public int getHour() {
+		return hour;
+	}
+	public int getMinute() {
+		return minute;
+	}
+	public int getSecond() {
+		return second;
+	}
+	
+}
+
+// another file
+
+package packone;
+
+class A {
+	public static void main(String[] args) {
+		Clock c = new Clock(5, 20, 10);
+		System.out.println("从类A中访问Clock hour=" + c.hour);
+		// System.out.println("从类A中访问Clock minute=" + c.minute);	* The field Clock.minute is not visible
+		System.out.println("从类A中访问Clock second=" + c.second);
+	}
+}
+
+// another file
+
+package packtwo;
+import packone.*;
+
+public class B {
+
+	public static void main(String[] args) {
+		Clock c = new Clock(8, 30, 5);
+		System.out.println("从类B中访问Clock hour=" + c.hour);
+		// System.out.println("从类A中访问Clock minute=" + c.minute);	* The field Clock.minute is not visible
+		// System.out.println("从类A中访问Clock second=" + c.second);	* The field Clock.second is not visible
+
+	}
+
+}
+
