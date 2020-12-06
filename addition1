@@ -1,0 +1,46 @@
+package addition;
+
+import java.util.Scanner;
+
+public class FrequentOfNumbers {
+
+	public static void main(String[] args) {
+		
+		System.out.print("Enter n: ");
+		
+		Scanner input = new Scanner(System.in);
+		int n = input.nextInt();
+		
+		System.out.print("Enter " + n + " numbers: ");
+		
+		int[] a = new int[n];
+		for(int i = 0; i < n; i++) {
+			a[i] = input.nextInt();
+		}
+		
+		int[] counter = new int[100];
+		for(int i = 0; i < 100; i++) {
+			counter[i] = 0;
+		}
+		
+		for(int i = 0; i < n; i++) {
+			counter[a[i]]++;
+		}
+		
+		int bestFrequent = 0;
+		for(int i = 0; i < 100; i++) {
+			if(counter[i] > bestFrequent) bestFrequent = counter[i];
+		}
+		
+		System.out.print("The best frequent number: ");
+		
+		for(int i = 0; i < 100; i++) {
+			if(counter[i] == bestFrequent) {
+				System.out.println(i);
+				break;
+			}
+		}
+		
+	}
+
+}
