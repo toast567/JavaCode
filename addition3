@@ -1,0 +1,57 @@
+package addition;
+
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class InterestingNumberCounter {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a number of digits: ");
+		int n = input.nextInt();
+		
+		String maxS = "";
+		for(int i = 0; i < n; i++) {
+			maxS += "9";
+		}
+		final BigDecimal maxN = new BigDecimal(maxS);
+		final BigDecimal one = new BigDecimal("1");
+		final BigDecimal divisor = new BigDecimal("1000000007");
+		BigDecimal everyN = new BigDecimal("0");
+		
+		BigDecimal interestingNumCtr = new BigDecimal("0");
+		
+		for(; everyN.compareTo(maxN) == -1; everyN = everyN.add(one)) {
+			
+			String everyS = everyN.toString();
+			
+			boolean flag1 = !(everyS.contains("4") || everyS.contains("5")
+					|| everyS.contains("6") || everyS.contains("7")
+					|| everyS.contains("8") || everyS.contains("9")) 
+					&& everyS.contains("0") && everyS.contains("1")
+					&& everyS.contains("2") && everyS.contains("3");
+			
+			int first0Index = everyS.indexOf("0");
+			int first2Index = everyS.indexOf("2");
+			String strFor0 = "";
+			String strFor2 = "";
+			if(first0Index > 0)
+				strFor0 = everyS.substring(0, first0Index);
+
+			if(first2Index > 0)
+				strFor2 = everyS.substring(0, first2Index);
+			
+			boolean flag2 = !(strFor0.contains("1") || strFor2.contains("3"));
+			
+			if(flag1 && flag2) interestingNumCtr = interestingNumCtr.add(one);
+			
+		}
+		
+		BigDecimal result = interestingNumCtr.remainder(divisor);
+		
+		System.out.println(result.intValue());
+		
+	}
+
+}
